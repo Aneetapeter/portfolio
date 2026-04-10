@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aneeta Peter | Software Developer &amp; Data Analytics Student</title>
+  <meta name="description" content="Portfolio of Aneeta Peter – BSc CS (Data Analytics) Student at Rajagiri College of Social Sciences and Developer at ERA, specializing in AI, healthcare tech, and full-stack web solutions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAV
+  ══════════════════════════════════════════ -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" id="nav-logo">AP</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about"          class="nav-link" id="nl-about">About</a></li>
+        <li><a href="#skills"         class="nav-link" id="nl-skills">Skills</a></li>
+        <li><a href="#experience"     class="nav-link" id="nl-exp">Experience</a></li>
+        <li><a href="#projects"       class="nav-link" id="nl-proj">Projects</a></li>
+        <li><a href="#certifications" class="nav-link" id="nl-certs">Certs</a></li>
+        <li><a href="#contact"        class="nav-link nav-cta" id="nl-contact">Contact</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+
+
+    <!-- Ambient orbs -->
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <div class="orb orb-3" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <!-- PHOTO -->
+      <div class="photo-wrap" id="photo-wrap">
+        <div class="photo-ring">
+          <div class="photo-inner">
+            <img
+              id="profile-img"
+              src="me.jpg"
+              alt="Aneeta Peter"
+              onerror="this.style.display='none';document.getElementById('av').style.display='flex';"
+            />
+            <div class="photo-avatar" id="av" style="display:none;">
+              <span>AP</span>
+            </div>
+          </div>
+        </div>
+        <div class="photo-pulse"></div>
+        <div class="photo-status">
+          <span class="status-dot"></span>
+          <span class="status-text">Open to Opportunities</span>
+        </div>
+      </div>
+
+      <!-- TEXT -->
+      <div class="hero-text">
+        <p class="hero-greeting" data-word-reveal data-delay="0">Hello, I'm</p>
+        <h1 class="hero-name" data-word-reveal data-delay="120">Aneeta Peter</h1>
+        <div class="hero-roles reveal-up" style="--d:0.6s">
+          <span class="role-static">I'm a </span>
+          <span class="role-typed" id="typed"></span>
+          <span class="role-cursor">|</span>
+        </div>
+        <p class="hero-bio" data-word-reveal data-delay="220">
+          BSc CS (Data Analytics) Student at Rajagiri College of Social Sciences &amp;
+          Developer at ERA &mdash; building intelligent, scalable software across AI, healthcare, and web.
+        </p>
+        <div class="hero-actions reveal-up" style="--d:0.95s">
+          <a href="#projects" class="btn btn-primary" id="btn-work">View My Work</a>
+          <a href="#contact"  class="btn btn-ghost"   id="btn-hire">Hire Me</a>
+        </div>
+        <div class="hero-socials reveal-up" style="--d:0.85s">
+          <a href="https://github.com"   target="_blank" rel="noopener" class="social-icon" id="si-gh"  aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.5 2.87 8.33 6.84 9.68.5.09.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.13 20.52 22 16.69 22 12.19 22 6.58 17.52 2 12 2Z"/></svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-icon" id="si-li" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+          <a href="mailto:aneetaaaa62388@gmail.com" class="social-icon" id="si-em" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="hero-scroll" aria-label="Scroll down">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll</span>
+    </a>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════════ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">01 — About</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+
+      <div class="about-grid fade-in">
+        <div class="about-text-block">
+          <p>
+            I'm an aspiring <strong>Software Developer and Data Analytics student</strong> at Rajagiri
+            College of Social Sciences, Kochi, with hands-on experience building real-world applications
+            across <strong>AI, healthcare, and web platforms</strong>.
+          </p>
+          <p>
+            Skilled in full-stack development and problem-solving, with a strong interest in developing
+            <strong>intelligent and scalable systems</strong>. Currently seeking an internship opportunity
+            to apply technical expertise and contribute to impactful projects.
+          </p>
+          <div class="about-stats">
+            <div class="stat-item" id="stat-projects">
+              <span class="stat-num">3+</span>
+              <span class="stat-lbl">Projects</span>
+            </div>
+            <div class="stat-item" id="stat-exp">
+              <span class="stat-num">1+</span>
+              <span class="stat-lbl">Year Exp.</span>
+            </div>
+            <div class="stat-item" id="stat-skills">
+              <span class="stat-num">10+</span>
+              <span class="stat-lbl">Technologies</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="education-block">
+          <h3 class="sub-heading">Education</h3>
+          <div class="edu-timeline">
+            <div class="edu-item" id="edu-bsc">
+              <div class="edu-icon">&#x1F393;</div>
+              <div class="edu-body">
+                <h4>B.Sc. Computer Science (Data Analytics)</h4>
+                <p>Rajagiri College of Social Sciences, Kochi</p>
+                <p class="edu-year">2024 &ndash; Present &nbsp;&middot;&nbsp; Completed 2nd Year</p>
+                <p class="edu-coursework">Relevant Coursework: Data Structures, DBMS, Data Analytics, Machine Learning</p>
+                <span class="edu-badge pursuing">Pursuing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SKILLS
+  ══════════════════════════════════════════ -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">02 — Skills</span>
+        <h2 class="section-title">Technical Arsenal</h2>
+      </div>
+
+      <div class="skills-categories fade-in">
+
+        <div class="skill-group" id="sg-lang">
+          <h3 class="skill-group-title">
+            <span class="sg-icon">&#x26A1;</span> Programming Languages
+          </h3>
+          <div class="skill-pills">
+            <div class="skill-pill" id="sp-python">
+              <span class="pill-icon">&#x1F40D;</span><span>Python</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:85%"></div></div>
+            </div>
+            <div class="skill-pill" id="sp-java">
+              <span class="pill-icon">&#x2615;</span><span>Java</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:75%"></div></div>
+            </div>
+            <div class="skill-pill" id="sp-cpp">
+              <span class="pill-icon">&#x2699;&#xFE0F;</span><span>C++</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:70%"></div></div>
+            </div>
+            <div class="skill-pill" id="sp-sql">
+              <span class="pill-icon">&#x1F5C4;&#xFE0F;</span><span>SQL / PGSQL</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:78%"></div></div>
+            </div>
+            <div class="skill-pill" id="sp-streamlit">
+              <span class="pill-icon">&#x1F4CA;</span><span>Streamlit</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:70%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-group" id="sg-web">
+          <h3 class="skill-group-title">
+            <span class="sg-icon">&#x1F310;</span> Technologies &amp; Frameworks
+          </h3>
+          <div class="skill-pills">
+            <div class="skill-pill" id="sp-flutter">
+              <span class="pill-icon">&#x1F4F1;</span><span>Flutter</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:80%"></div></div>
+            </div>
+            <div class="skill-pill" id="sp-react">
+              <span class="pill-icon">&#x269B;&#xFE0F;</span><span>React</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:75%"></div></div>
+            </div>
+            <div class="skill-pill" id="sp-laravel">
+              <span class="pill-icon">&#x1F534;</span><span>Laravel</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:78%"></div></div>
+            </div>
+            <div class="skill-pill" id="sp-php">
+              <span class="pill-icon">&#x1F418;</span><span>PHP</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:75%"></div></div>
+            </div>
+            <div class="skill-pill" id="sp-html">
+              <span class="pill-icon">&#x1F3A8;</span><span>HTML / CSS</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:90%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-group" id="sg-core">
+          <h3 class="skill-group-title">
+            <span class="sg-icon">&#x1F9E0;</span> Core Concepts
+          </h3>
+          <div class="skill-pills">
+            <div class="skill-pill" id="sp-dsa">
+              <span class="pill-icon">&#x1F522;</span><span>Data Structures &amp; Algorithms</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:80%"></div></div>
+            </div>
+            <div class="skill-pill" id="sp-dbms">
+              <span class="pill-icon">&#x1F5C3;&#xFE0F;</span><span>Database Management Systems</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:78%"></div></div>
+            </div>
+            <div class="skill-pill" id="sp-oop">
+              <span class="pill-icon">&#x1F3D7;&#xFE0F;</span><span>Object-Oriented Programming</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:82%"></div></div>
+            </div>
+            <div class="skill-pill" id="sp-ml">
+              <span class="pill-icon">&#x1F916;</span><span>Machine Learning Basics</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:72%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-group" id="sg-soft">
+          <h3 class="skill-group-title">
+            <span class="sg-icon">&#x1F4A1;</span> Soft Skills
+          </h3>
+          <div class="skill-pills">
+            <div class="skill-pill" id="sp-think">
+              <span class="pill-icon">&#x1F3AF;</span><span>Strategic Thinking</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:85%"></div></div>
+            </div>
+            <div class="skill-pill" id="sp-prob">
+              <span class="pill-icon">&#x1F9E9;</span><span>Problem-Solving</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:88%"></div></div>
+            </div>
+            <div class="skill-pill" id="sp-team">
+              <span class="pill-icon">&#x1F91D;</span><span>Team Collaboration</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:85%"></div></div>
+            </div>
+            <div class="skill-pill" id="sp-comm">
+              <span class="pill-icon">&#x1F4AC;</span><span>Communication</span>
+              <div class="pill-bar"><div class="pill-fill" style="--w:83%"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       EXPERIENCE
+  ══════════════════════════════════════════ -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">03 — Experience</span>
+        <h2 class="section-title">What I've Done</h2>
+      </div>
+
+      <div class="exp-timeline fade-in">
+
+        <div class="exp-card-new" id="exp-era-pt">
+          <div class="exp-left">
+            <div class="exp-logo-wrap">
+              <span class="exp-logo-emoji">&#x1F4BC;</span>
+            </div>
+            <div class="exp-connector"></div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-meta">
+              <span class="exp-company">ERA</span>
+              <span class="exp-dot">&middot;</span>
+              <span class="exp-type">Part-Time &nbsp;&middot;&nbsp; 1 Year</span>
+            </div>
+            <h3 class="exp-role">Developer</h3>
+            <ul class="exp-bullets">
+              <li>Developed and enhanced application features using Flutter, Laravel, and PHP</li>
+              <li>Implemented backend logic and improved database performance</li>
+              <li>Collaborated with cross-functional teams to deliver scalable solutions</li>
+            </ul>
+            <div class="exp-tags">
+              <span>Flutter</span><span>Laravel</span><span>PHP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-card-new" id="exp-era-intern">
+          <div class="exp-left">
+            <div class="exp-logo-wrap">
+              <span class="exp-logo-emoji">&#x1F52C;</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-meta">
+              <span class="exp-company">ERA</span>
+              <span class="exp-dot">&middot;</span>
+              <span class="exp-type">Internship &nbsp;&middot;&nbsp; 2 Months</span>
+            </div>
+            <h3 class="exp-role">Software Development Intern</h3>
+            <ul class="exp-bullets">
+              <li>Assisted in building, research and testing application modules</li>
+              <li>Debugged issues and improved system performance</li>
+              <li>Gained practical exposure to real-world development workflows</li>
+            </ul>
+            <div class="exp-tags">
+              <span>Research</span><span>Testing</span><span>Debugging</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       PROJECTS
+  ══════════════════════════════════════════ -->
+  <section class="section section-alt" id="projects">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">04 — Projects</span>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+
+      <div class="projects-grid fade-in">
+
+        <div class="proj-card featured" id="proj-zera">
+          <div class="proj-card-bg"></div>
+          <div class="proj-content">
+            <div class="proj-header">
+              <span class="proj-emoji">&#x1F916;</span>
+              <div class="proj-links">
+                <a href="#" class="proj-link" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="18"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.5 2.87 8.33 6.84 9.68.5.09.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.13 20.52 22 16.69 22 12.19 22 6.58 17.52 2 12 2Z"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="proj-featured-tag">&#x2B50; Featured</div>
+            <h3 class="proj-title">ZERA &ndash; AI Chatbot Application</h3>
+            <p class="proj-desc">
+              Developed an intelligent chatbot using Python and Flutter. Implemented conversational
+              logic and real-time response handling with a user-friendly mobile interface.
+            </p>
+            <div class="proj-tech">
+              <span>Python</span><span>Flutter</span><span>AI</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card" id="proj-scanix">
+          <div class="proj-card-bg"></div>
+          <div class="proj-content">
+            <div class="proj-header">
+              <span class="proj-emoji">&#x1F3E5;</span>
+              <div class="proj-links">
+                <a href="#" class="proj-link" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="18"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.5 2.87 8.33 6.84 9.68.5.09.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.13 20.52 22 16.69 22 12.19 22 6.58 17.52 2 12 2Z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="proj-title">Scanix &ndash; Facial Paralysis Detection</h3>
+            <p class="proj-desc">
+              Healthcare-focused web application using React and Python. Implements facial analysis
+              techniques to detect signs of paralysis and improve early diagnosis accessibility.
+            </p>
+            <div class="proj-tech">
+              <span>React</span><span>Python</span><span>Computer Vision</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card" id="proj-mantra">
+          <div class="proj-card-bg"></div>
+          <div class="proj-content">
+            <div class="proj-header">
+              <span class="proj-emoji">&#x1F4DA;</span>
+              <div class="proj-links">
+                <a href="#" class="proj-link" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="18"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.5 2.87 8.33 6.84 9.68.5.09.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.13 20.52 22 16.69 22 12.19 22 6.58 17.52 2 12 2Z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="proj-title">Mantra &ndash; Study-Oriented Platform</h3>
+            <p class="proj-desc">
+              Full-stack web platform using Laravel, PHP, and HTML. Designed for structured
+              learning and content management with a clean, responsive interface.
+            </p>
+            <div class="proj-tech">
+              <span>Laravel</span><span>PHP</span><span>HTML</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CERTIFICATIONS
+  ══════════════════════════════════════════ -->
+  <section class="section" id="certifications">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">05 &mdash; Certifications</span>
+        <h2 class="section-title">Certifications</h2>
+      </div>
+      <div class="certs-grid fade-in">
+        <div class="cert-card" id="cert-era">
+          <div class="cert-img-wrap" onclick="openCert('intern.jpeg')" title="Click to view certificate">
+            <img src="intern.jpeg" alt="ERA Research Internship Certificate" class="cert-thumb" />
+            <div class="cert-img-overlay">
+              <span>&#x1F50D; View</span>
+            </div>
+          </div>
+          <div class="cert-body">
+            <h3 class="cert-title">Research Internship</h3>
+            <p class="cert-issuer">ERA &mdash; Rajagiri College of Social Sciences</p>
+            <p class="cert-date">April 2025 &ndash; May 2025 &nbsp;&middot;&nbsp; Research Intern</p>
+            <button class="cert-view-btn" onclick="openCert('intern.jpeg')" id="btn-view-cert">
+              &#x1F4C4; View Certificate
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate Lightbox -->
+      <div class="cert-lightbox" id="certLightbox" onclick="closeCert()">
+        <div class="cert-lightbox-inner" onclick="event.stopPropagation()">
+          <button class="cert-lb-close" onclick="closeCert()" aria-label="Close">&times;</button>
+          <img src="" alt="Certificate" id="certLightboxImg" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════════ -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">06 &mdash; Contact</span>
+        <h2 class="section-title">Let's Build Something</h2>
+      </div>
+
+      <div class="contact-wrap-simple fade-in">
+        <p class="contact-lead">
+          I'm currently open to new opportunities, collaborations, and interesting projects.
+          Whether you have a question or just want to say hi &mdash; my inbox is always open!
+        </p>
+        <div class="contact-info-list">
+          <div class="contact-info-item" id="ci-phone">
+            <div class="ci-icon">&#x1F4DE;</div>
+            <div>
+              <span class="ci-label">Phone</span>
+              <a href="tel:+919496600778" class="ci-value">+91 9496600778</a>
+            </div>
+          </div>
+          <div class="contact-info-item" id="ci-email">
+            <div class="ci-icon">&#x2709;&#xFE0F;</div>
+            <div>
+              <span class="ci-label">Email</span>
+              <a href="mailto:aneetaaaa62388@gmail.com" class="ci-value">aneetaaaa62388@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-info-item" id="ci-location">
+            <div class="ci-icon">&#x1F4CD;</div>
+            <div>
+              <span class="ci-label">Location</span>
+              <span class="ci-value">Kerala, India</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-socials">
+          <a href="https://github.com"   target="_blank" rel="noopener" class="cs-btn" id="cs-gh">GitHub</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="cs-btn" id="cs-li">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">AP</span>
+      <p class="footer-copy">&copy; 2026 Aneeta Peter &mdash; Designed &amp; Built with &#x1F49C;</p>
+      <div class="footer-socials">
+        <a href="https://github.com"   target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.5 2.87 8.33 6.84 9.68.5.09.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49C19.13 20.52 22 16.69 22 12.19 22 6.58 17.52 2 12 2Z"/></svg>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
