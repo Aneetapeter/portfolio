@@ -1,0 +1,736 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@700&display=swap');
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --blue: #7dd3fc;
+  --red: #7f1d1d;
+  --panel: rgba(255, 255, 255, 0.055);
+  --line: rgba(255, 255, 255, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  background: #000;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: #000;
+  font-family: Inter, system-ui, sans-serif;
+  cursor: none;
+}
+
+a,
+button {
+  cursor: none;
+}
+
+.hero-title,
+.section-heading {
+  font-family: "Bebas Neue", Impact, sans-serif;
+}
+
+.hero-title {
+  text-shadow: 0 0 42px rgba(125, 211, 252, 0.08);
+}
+
+.poster-hero {
+  min-height: 100svh;
+  perspective: 1200px;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(125, 211, 252, 0.13), transparent 31%),
+    radial-gradient(circle at 61% 42%, rgba(127, 29, 29, 0.20), transparent 25%),
+    linear-gradient(180deg, #030303 0%, #050505 50%, #010101 100%);
+}
+
+.poster-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 22;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.84), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.86)),
+    radial-gradient(circle at 50% 42%, transparent 0 35%, rgba(0, 0, 0, 0.45) 78%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.34), transparent 35%, rgba(0, 0, 0, 0.55));
+  mix-blend-mode: multiply;
+}
+
+.poster-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 41;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 72%, rgba(0, 0, 0, 0.74)),
+    radial-gradient(circle at 50% 62%, rgba(255, 255, 255, 0.05), transparent 34%);
+}
+
+.poster-layer {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.poster-nav-shell {
+  min-height: 54px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.44), rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.44));
+  padding: 0.35rem 0.8rem;
+  backdrop-filter: blur(10px);
+}
+
+.poster-logo {
+  height: 38px;
+  width: 38px;
+  font-size: 0.82rem;
+}
+
+.poster-social {
+  height: 36px;
+  width: 36px;
+}
+
+.poster-nav-link {
+  font-size: 0.68rem;
+}
+
+.poster-title-layer {
+  inset-inline: 0;
+  top: 18.5vh;
+  height: 48vh;
+  align-items: center;
+}
+
+.poster-title {
+  position: relative;
+  display: block;
+  width: 100vw;
+  color: rgba(238, 244, 246, 0.70);
+  font-family: "Oswald", "Anton", "Bebas Neue", Impact, sans-serif;
+  font-size: clamp(8rem, 25.5vw, 30rem);
+  letter-spacing: 0.032em;
+  line-height: 0.82;
+  text-align: center;
+  text-shadow:
+    0 0 1px rgba(255, 255, 255, 0.75),
+    0 0 48px rgba(125, 211, 252, 0.16),
+    0 22px 90px rgba(0, 0, 0, 0.72);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.22);
+}
+
+.poster-title-scale {
+  display: block;
+  transform: scaleY(1.12);
+}
+
+.poster-title::after {
+  display: none;
+}
+
+.poster-portrait-wrap {
+  height: 100svh;
+  width: min(72vw, 920px);
+}
+
+.hero-portrait {
+  animation: portraitFloat 5.6s ease-in-out infinite;
+  height: min(100svh, 960px);
+  max-width: none;
+  transform-origin: 50% 86%;
+  filter:
+    contrast(1.09)
+    saturate(0.88)
+    brightness(0.95)
+    drop-shadow(-24px 0 28px rgba(14, 165, 233, 0.43))
+    drop-shadow(22px 0 25px rgba(127, 29, 29, 0.36))
+    drop-shadow(0 34px 46px rgba(0, 0, 0, 0.72));
+}
+
+.portrait-aura {
+  position: absolute;
+  z-index: 10;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.portrait-aura-blue {
+  bottom: 16%;
+  left: 10%;
+  height: 58%;
+  width: 72%;
+  background: rgba(14, 165, 233, 0.20);
+  filter: blur(70px);
+}
+
+.portrait-aura-red {
+  bottom: 20%;
+  right: 8%;
+  height: 48%;
+  width: 34%;
+  background: rgba(127, 29, 29, 0.28);
+  filter: blur(60px);
+}
+
+.portrait-ground-shadow {
+  position: absolute;
+  bottom: 7vh;
+  left: 50%;
+  z-index: 9;
+  height: 9vh;
+  width: min(54vw, 620px);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.34) 45%, transparent 72%);
+  filter: blur(18px);
+  transform: translateX(-50%) rotate(-1deg);
+}
+
+.poster-caption {
+  max-width: 840px;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.poster-transition-band {
+  height: 34vh;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.52) 18%, #040404 58%, #050505 100%),
+    radial-gradient(circle at 42% 30%, rgba(125, 211, 252, 0.18), transparent 28%),
+    radial-gradient(circle at 72% 34%, rgba(127, 29, 29, 0.16), transparent 24%);
+  box-shadow: 0 -28px 80px rgba(0, 0, 0, 0.85);
+  will-change: transform, opacity;
+}
+
+.poster-transition-band::before {
+  content: "";
+  position: absolute;
+  inset: 18% 0 auto;
+  height: 46px;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.22) 0 8px, transparent 8px 18px);
+  opacity: 0.35;
+  transform: skewY(-1deg);
+}
+
+.poster-transition-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.82), transparent 22%, transparent 78%, rgba(0, 0, 0, 0.82)),
+    linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.92));
+}
+
+.poster-transition-rail {
+  position: absolute;
+  left: 5vw;
+  right: 5vw;
+  top: 22%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+}
+
+.poster-scene-marker {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  color: white;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  will-change: transform, opacity, filter;
+}
+
+.poster-scene-marker span {
+  color: rgba(125, 211, 252, 0.8);
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.32em;
+}
+
+.poster-scene-marker strong {
+  font-family: "Oswald", "Anton", "Bebas Neue", Impact, sans-serif;
+  font-size: clamp(2.6rem, 7vw, 6rem);
+  letter-spacing: 0.06em;
+  line-height: 0.88;
+  text-shadow: 0 0 38px rgba(125, 211, 252, 0.2);
+}
+
+.poster-tagline {
+  display: none;
+  text-shadow: 0 1px 20px rgba(0, 0, 0, 0.85);
+}
+
+.poster-credit-strip {
+  position: absolute;
+  top: 6.1rem;
+  left: 12vw;
+  right: 12vw;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.poster-credit-strip span {
+  position: relative;
+}
+
+.poster-credit-strip span::after {
+  content: "";
+  position: absolute;
+  bottom: -0.55rem;
+  left: 50%;
+  height: 1px;
+  width: 32px;
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateX(-50%);
+}
+
+.poster-meta {
+  position: absolute;
+  bottom: 4.5rem;
+  width: 260px;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  padding-top: 0.8rem;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.poster-meta strong {
+  display: block;
+  margin-top: 0.45rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.78rem;
+}
+
+.poster-meta-left {
+  left: 5vw;
+}
+
+.poster-meta-right {
+  right: 5vw;
+  text-align: right;
+}
+
+.poster-vertical-label {
+  position: absolute;
+  right: 1.5vw;
+  top: 42%;
+  align-items: center;
+  gap: 0.75rem;
+  writing-mode: vertical-rl;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.poster-vertical-label::before,
+.poster-vertical-label::after {
+  content: "";
+  display: block;
+  height: 42px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+@keyframes portraitFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+.kicker {
+  color: rgba(125, 211, 252, 0.76);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  max-width: 980px;
+  font-size: clamp(4.5rem, 12vw, 10.5rem);
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+.glass-panel {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025)),
+    rgba(0, 0, 0, 0.28);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+  overflow: hidden;
+  backdrop-filter: blur(22px);
+}
+
+.glass-panel::before,
+.project-card::before,
+.contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+  opacity: 0;
+  transform: translateX(-70%);
+  transition: transform 0.8s ease, opacity 0.35s ease;
+}
+
+.glass-panel:hover::before,
+.project-card:hover::before,
+.contact-card:hover::before {
+  opacity: 1;
+  transform: translateX(70%);
+}
+
+.btn-primary,
+.btn-ghost {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.76rem;
+  font-weight: 900;
+  gap: 0.6rem;
+  justify-content: center;
+  letter-spacing: 0.16em;
+  min-height: 3rem;
+  padding: 0.95rem 1.35rem;
+  text-transform: uppercase;
+  transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #050505;
+  box-shadow: 0 0 35px rgba(125, 211, 252, 0.22);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 45px rgba(125, 211, 252, 0.45);
+}
+
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+}
+
+.btn-ghost:hover {
+  border-color: rgba(125, 211, 252, 0.55);
+  color: white;
+}
+
+.project-card {
+  position: relative;
+  min-height: 440px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.5rem;
+  padding: 1.35rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(125, 211, 252, 0.13), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+  transform-style: preserve-3d;
+  transition: transform 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+  backdrop-filter: blur(20px);
+}
+
+.project-card:hover {
+  border-color: rgba(125, 211, 252, 0.55);
+  box-shadow: 0 0 60px rgba(125, 211, 252, 0.12);
+  transform: perspective(900px) rotateX(4deg) rotateY(-5deg) translateY(-8px);
+}
+
+.project-card.red {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(127, 29, 29, 0.28), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+}
+
+.project-preview {
+  display: grid;
+  height: 150px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.1rem;
+  background:
+    linear-gradient(130deg, rgba(255, 255, 255, 0.08), transparent),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 28px),
+    radial-gradient(circle, rgba(125, 211, 252, 0.16), transparent 65%);
+}
+
+.project-preview span {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 6rem;
+  line-height: 1;
+  opacity: 0.18;
+}
+
+.chip {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.72rem;
+  padding: 0.45rem 0.75rem;
+}
+
+.icon-link {
+  display: grid;
+  height: 2.8rem;
+  width: 2.8rem;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.72);
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+
+.icon-link:hover {
+  border-color: rgba(125, 211, 252, 0.55);
+  background: rgba(125, 211, 252, 0.08);
+  color: #fff;
+}
+
+.skill-orb {
+  align-items: center;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 999px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.045);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  backdrop-filter: blur(16px);
+}
+
+.skill-orb span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.skill-orb:hover {
+  border-color: rgba(125, 211, 252, 0.55);
+  box-shadow: 0 0 46px rgba(125, 211, 252, 0.16);
+  transform: translateY(-10px) scale(1.04);
+}
+
+.skill-orb.red:hover {
+  border-color: rgba(127, 29, 29, 0.9);
+  box-shadow: 0 0 46px rgba(127, 29, 29, 0.24);
+}
+
+.contact-card {
+  position: relative;
+  min-height: 190px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.045);
+  backdrop-filter: blur(18px);
+  transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.contact-card:hover {
+  border-color: rgba(125, 211, 252, 0.55);
+  transform: translateY(-8px);
+}
+
+.contact-card span {
+  display: block;
+  margin-top: 2rem;
+  color: rgba(125, 211, 252, 0.75);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.contact-card strong {
+  display: block;
+  margin-top: 0.55rem;
+  overflow-wrap: anywhere;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1rem;
+}
+
+.noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.86' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+.fog {
+  position: absolute;
+  width: 90vw;
+  height: 40vh;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.24;
+  animation: fogMove 16s ease-in-out infinite alternate;
+}
+
+.fog-a {
+  left: -15vw;
+  top: 18vh;
+  background: rgba(125, 211, 252, 0.16);
+}
+
+.fog-b {
+  right: -22vw;
+  top: 48vh;
+  background: rgba(127, 29, 29, 0.16);
+  animation-delay: -6s;
+}
+
+@keyframes fogMove {
+  from {
+    transform: translate3d(-4%, 2%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(6%, -5%, 0) scale(1.1);
+  }
+}
+
+.light-ray {
+  position: absolute;
+  top: -20vh;
+  height: 120vh;
+  width: 12vw;
+  transform: rotate(12deg);
+  background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.08), transparent);
+  filter: blur(10px);
+  animation: rayShift 8s ease-in-out infinite alternate;
+}
+
+@keyframes rayShift {
+  from {
+    opacity: 0.1;
+    transform: translateX(-20px) rotate(12deg);
+  }
+  to {
+    opacity: 0.45;
+    transform: translateX(24px) rotate(12deg);
+  }
+}
+
+@media (max-width: 900px) {
+  body,
+  a,
+  button {
+    cursor: auto;
+  }
+
+  .poster-nav-shell {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.34);
+    padding: 0.45rem 0.65rem;
+  }
+
+  .hero-title {
+    font-size: clamp(6rem, 32vw, 14rem);
+  }
+
+  .poster-title-layer {
+    inset-inline: -22vw;
+    top: 34vh;
+    height: 22vh;
+  }
+
+  .poster-title {
+    width: 144vw;
+    font-size: clamp(6.4rem, 34vw, 13rem);
+    letter-spacing: 0.035em;
+  }
+
+  .poster-title-scale {
+    transform: scaleY(1.16);
+  }
+
+  .poster-portrait-wrap {
+    bottom: -4vh;
+    height: 84svh;
+    width: 112vw;
+  }
+
+  .hero-portrait {
+    height: min(86svh, 760px);
+  }
+
+  .poster-caption {
+    bottom: 1rem;
+    max-width: 360px;
+  }
+
+  .section-heading {
+    font-size: clamp(4rem, 18vw, 7rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-portrait {
+    height: min(82svh, 690px);
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    width: auto;
+    min-height: 2.65rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.11em;
+  }
+
+  .poster-title {
+    width: 148vw;
+    font-size: clamp(5.4rem, 31vw, 9.4rem);
+    letter-spacing: 0.04em;
+  }
+
+  .poster-caption .poster-tagline {
+    display: none;
+  }
+
+  .project-card {
+    min-height: 390px;
+  }
+}
