@@ -22,8 +22,8 @@ import { VscCode } from 'react-icons/vsc';
 export const navItems = ['About', 'Projects', 'Experience', 'Skills', 'Contact', 'Resume'];
 
 export const socials = [
-  { label: 'GitHub', href: 'https://github.com', icon: FaGithub },
-  { label: 'LinkedIn', href: 'https://linkedin.com', icon: FaLinkedin },
+  { label: 'GitHub', href: 'https://github.com/Aneetapeter/portfolio', icon: FaGithub },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/aneeta-peter-1499a3364/', icon: FaLinkedin },
   { label: 'Email', href: 'mailto:aneetaaaa62388@gmail.com', icon: FaEnvelope },
 ];
 
@@ -111,6 +111,6 @@ export const timeline = [
 export const contactCards = [
   { label: 'Email', value: 'aneetaaaa62388@gmail.com', href: 'mailto:aneetaaaa62388@gmail.com', icon: FaEnvelope },
   { label: 'Phone', value: '+91 9496600778', href: 'tel:+919496600778', icon: FaPhoneAlt },
-  { label: 'GitHub', value: 'github.com', href: 'https://github.com', icon: FaGithub },
-  { label: 'LinkedIn', value: 'linkedin.com', href: 'https://linkedin.com', icon: FaLinkedin },
+  { label: 'GitHub', value: 'Aneetapeter/portfolio', href: 'https://github.com/Aneetapeter/portfolio', icon: FaGithub },
+  { label: 'LinkedIn', value: 'aneeta-peter', href: 'https://www.linkedin.com/in/aneeta-peter-1499a3364/', icon: FaLinkedin },
 ];

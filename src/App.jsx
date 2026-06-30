@@ -39,9 +39,10 @@ function App() {
     requestAnimationFrame(raf);
 
     const ctx = gsap.context(() => {
-      gsap.set('.poster-title, .poster-portrait-wrap, .poster-caption, .poster-credit-strip, .poster-meta-left, .poster-meta-right, .poster-vertical-label', {
+      gsap.set('.poster-title, .poster-portrait-wrap, .poster-caption, .poster-credit-strip, .poster-meta-left, .poster-meta-right, .poster-vertical-label, .about-photo-echo', {
         clearProps: 'transform,opacity,filter',
       });
+      gsap.set('.poster-portrait-wrap', { transformOrigin: '50% 58%' });
       gsap.set('.poster-transition-band', { yPercent: 100, opacity: 0 });
       gsap.set('.poster-scene-marker', { y: 44, opacity: 0, filter: 'blur(14px)' });
 
@@ -49,27 +50,29 @@ function App() {
         scrollTrigger: {
           trigger: heroRef.current,
           start: 'top top',
-          end: '+=145%',
-          scrub: 1.15,
+          end: '+=175%',
+          scrub: 1.05,
           pin: true,
           anticipatePin: 1,
         },
       });
 
       heroTl
-        .to('.poster-bg-layer', { yPercent: -8, scale: 1.08, opacity: 0.92, ease: 'none' }, 0)
-        .to('.poster-title', { yPercent: -18, scale: 1.08, opacity: 0.82, ease: 'none' }, 0)
-        .to('.poster-portrait-wrap', { yPercent: -18, scale: 1.08, ease: 'none' }, 0)
-        .to('.poster-credit-strip', { yPercent: -42, opacity: 0.18, filter: 'blur(6px)', ease: 'none' }, 0.03)
-        .to('.poster-caption', { yPercent: -46, scale: 0.92, opacity: 0, filter: 'blur(14px)', ease: 'none' }, 0.08)
-        .to('.poster-meta-left, .poster-meta-right, .poster-vertical-label', { yPercent: -26, opacity: 0.28, ease: 'none' }, 0.08)
-        .to('.poster-transition-band', { yPercent: 18, opacity: 1, ease: 'none' }, 0.2)
-        .to('.poster-scene-marker', { y: 0, opacity: 1, filter: 'blur(0px)', ease: 'none' }, 0.34)
-        .to('.poster-title', { yPercent: -36, scale: 1.18, opacity: 0.42, filter: 'blur(2px)', ease: 'none' }, 0.52)
-        .to('.poster-portrait-wrap', { yPercent: -54, scale: 1.16, opacity: 0.72, filter: 'blur(1px)', ease: 'none' }, 0.52)
-        .to('.poster-bg-layer', { yPercent: -18, scale: 1.16, opacity: 0.58, ease: 'none' }, 0.52)
-        .to('.poster-transition-band', { yPercent: -8, opacity: 1, ease: 'none' }, 0.62)
-        .to('.poster-scene-marker', { y: -36, opacity: 0, filter: 'blur(12px)', ease: 'none' }, 0.82);
+        .to('.poster-bg-layer', { yPercent: -7, scale: 1.08, opacity: 0.94, ease: 'none' }, 0)
+        .to('.poster-title', { yPercent: -10, scale: 1.04, opacity: 0.82, ease: 'none' }, 0)
+        .to('.poster-portrait-wrap', { xPercent: -4, yPercent: -8, scale: 1.2, ease: 'none' }, 0.04)
+        .to('.poster-credit-strip', { yPercent: -42, opacity: 0.16, filter: 'blur(6px)', ease: 'none' }, 0.05)
+        .to('.poster-caption', { yPercent: -58, scale: 0.9, opacity: 0, filter: 'blur(16px)', ease: 'none' }, 0.1)
+        .to('.poster-meta-left, .poster-meta-right, .poster-vertical-label', { yPercent: -30, opacity: 0.22, ease: 'none' }, 0.1)
+        .to('.poster-transition-band', { yPercent: 22, opacity: 1, ease: 'none' }, 0.22)
+        .to('.poster-title', { yPercent: -22, scale: 1.16, opacity: 0.5, filter: 'blur(1px)', ease: 'none' }, 0.3)
+        .to('.poster-portrait-wrap', { xPercent: 8, yPercent: -31, scale: 1.72, opacity: 1, filter: 'blur(0px)', ease: 'none' }, 0.3)
+        .to('.poster-scene-marker', { y: 0, opacity: 1, filter: 'blur(0px)', ease: 'none' }, 0.38)
+        .to('.poster-bg-layer', { yPercent: -18, scale: 1.18, opacity: 0.62, ease: 'none' }, 0.55)
+        .to('.poster-title', { yPercent: -44, scale: 1.25, opacity: 0.22, filter: 'blur(4px)', ease: 'none' }, 0.58)
+        .to('.poster-portrait-wrap', { xPercent: -3, yPercent: -94, scale: 2.26, opacity: 0.36, filter: 'blur(7px)', ease: 'none' }, 0.58)
+        .to('.poster-transition-band', { yPercent: -12, opacity: 1, ease: 'none' }, 0.64)
+        .to('.poster-scene-marker', { y: -40, opacity: 0, filter: 'blur(14px)', ease: 'none' }, 0.82);
 
       gsap.utils.toArray('.scene-section').forEach((section) => {
         gsap.fromTo(
@@ -86,6 +89,20 @@ function App() {
           },
         );
       });
+
+      gsap.fromTo(
+        '.about-photo-echo',
+        { y: -220, scale: 1.85, opacity: 0, filter: 'blur(24px)' },
+        {
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          filter: 'blur(0px)',
+          duration: 1.25,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: '#about', start: 'top 72%' },
+        },
+      );
     });
 
     const onMove = (event) => {
@@ -242,7 +259,7 @@ function Nav() {
         </div>
         <div className="flex items-center gap-2">
           {socials.map(({ label, href, icon: Icon }) => (
-            <a key={label} href={href} aria-label={label} className="poster-social magnetic grid place-items-center rounded-full border border-white/10 bg-white/[0.03] text-white/70 transition hover:border-sky-300/50 hover:text-sky-200">
+            <a key={label} href={href} aria-label={label} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noreferrer' : undefined} className="poster-social magnetic grid place-items-center rounded-full border border-white/10 bg-white/[0.03] text-white/70 transition hover:border-sky-300/50 hover:text-sky-200">
               <Icon />
             </a>
           ))}
@@ -282,6 +299,9 @@ function SectionShell({ id, eyebrow, title, children, className = '' }) {
 function About() {
   return (
     <SectionShell id="about" eyebrow="Origin Story" title="A developer scene with a pulse.">
+      <div className="about-photo-echo pointer-events-none hidden lg:block">
+        <img src="/assets/aneeta-hero.png" alt="" />
+      </div>
       <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="cinema-reveal glass-panel p-8 md:p-10">
           <p className="text-xl leading-9 text-white/75">
@@ -324,7 +344,7 @@ function Projects() {
               {project.stack.map((tech) => <span key={tech} className="chip">{tech}</span>)}
             </div>
             <div className="mt-8 flex gap-3">
-              <a className="icon-link" href="https://github.com" aria-label={`${project.name} GitHub`}><FiGithub /></a>
+              <a className="icon-link" href="https://github.com/Aneetapeter/portfolio" target="_blank" rel="noreferrer" aria-label={`${project.name} GitHub`}><FiGithub /></a>
               <a className="icon-link" href="#contact" aria-label={`${project.name} live demo`}><FiExternalLink /></a>
             </div>
           </motion.article>
@@ -395,7 +415,7 @@ function Contact() {
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           {contactCards.map(({ label, value, href, icon: Icon }) => (
-            <a key={label} href={href} className="contact-card cinema-reveal">
+            <a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noreferrer' : undefined} className="contact-card cinema-reveal">
               <Icon className="text-3xl" />
               <span>{label}</span>
               <strong>{value}</strong>
